@@ -8,11 +8,8 @@
     max_retries: 9
     retry_interval: 20
     vm_ip:
-    vm_gateway:
     vm_mac:
     vm_netmask:
-    vm_domain:
-    dns_server:
 
   tasks:
     - debug: var=vcenter_hostname
@@ -44,6 +41,11 @@
         esxi:
           datacenter: "{{ datacenter }}"
           hostname: "{{ esxi_host }}"
+        networks:
+        - VM Network
+          ip: "{{ vm_ip }}"
+          netmask: "{{ vm_netmask }}"
+          mac: "{{ vm_mac }}"
 
     - name: Gather the facts for the VM
       vsphere_guest:
