@@ -7,6 +7,12 @@
     provider_id: "1000000000001"
     max_retries: 9
     retry_interval: 20
+    vm_ip:
+    vm_gateway:
+    vm_mac:
+    vm_netmask:
+    vm_domain:
+    dns_server:
 
   tasks:
     - debug: var=vcenter_hostname
