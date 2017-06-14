@@ -10,6 +10,7 @@
     vm_ip:
     vm_mac:
     vm_netmask:
+    vm_name:
 
   tasks:
     - debug: var=vcenter_hostname
@@ -38,6 +39,7 @@
         power_on_after_clone: no
         from_template: yes
         template_src: "{{ template }}"
+        name: "{{ vm_name  }}"
         esxi:
           datacenter: "{{ datacenter }}"
           hostname: "{{ esxi_host }}"
