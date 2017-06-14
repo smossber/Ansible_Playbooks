@@ -44,7 +44,7 @@
           datacenter: "{{ datacenter }}"
           hostname: "{{ esxi_host }}"
         networks:
-        - VM Network
+        -name: VM Network
           ip: "{{ vm_ip }}"
           netmask: "{{ vm_netmask }}"
           mac: "{{ vm_mac }}"
