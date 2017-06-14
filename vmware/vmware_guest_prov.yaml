@@ -14,7 +14,7 @@
 
   tasks:
     - debug: var=vcenter_hostname
-    - debug: var=esxi_host
+    - debug: var=cluster
     - debug: var=datacenter
     - debug: var=template
     - debug: var=manageiq.api_url
@@ -36,7 +36,7 @@
       vmware_guest:
         hostname: "{{ vcenter_hostname }}"
         validate_certs: no
-        esxi_hostname: "{{ esxi_host }}"
+        cluster: "{{ cluster }}"
         datacenter: "{{ datacenter }}"
         name: "{{ vm_name }}"
         state: poweredon
