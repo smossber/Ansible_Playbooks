@@ -45,9 +45,9 @@
           hostname: "{{ esxi_host }}"
         networks:
         -name: VM Network
-          ip: "{{ vm_ip }}"
-          netmask: "{{ vm_netmask }}"
-          mac: "{{ vm_mac }}"
+         ip: "{{ vm_ip }}"
+         netmask: "{{ vm_netmask }}"
+         mac: "{{ vm_mac }}"
 
     - name: Gather the facts for the VM
       vsphere_guest:
