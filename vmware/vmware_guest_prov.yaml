@@ -32,22 +32,22 @@
     - debug: var=svc_url 
 
     # Create a VM from a template
-  - name: create the VM
-    vmware_guest:
-      hostname: "{{ vcenter_hostname }}"
-      validate_certs: no
-      esxi_hostname: "{{ esxi_host }}"
-      datacenter: "{{ datacenter }}"
-      name: "{{ vm_name }}"
-      state: poweredon
-      guest_id: rhel7_64Guest
-      networks:
-      - name: VM Network
-        ip: "{{ vm_ip }}"
-        netmask: 255.255.254.0
-      template: "{{ template }}"
-      wait_for_ip_address: yes
-    register: deploy
+    - name: create the VM
+      vmware_guest:
+        hostname: "{{ vcenter_hostname }}"
+        validate_certs: no
+        esxi_hostname: "{{ esxi_host }}"
+        datacenter: "{{ datacenter }}"
+        name: "{{ vm_name }}"
+        state: poweredon
+        guest_id: rhel7_64Guest
+        networks:
+        - name: VM Network
+          ip: "{{ vm_ip }}"
+          netmask: 255.255.254.0
+        template: "{{ template }}"
+        wait_for_ip_address: yes
+      register: deploy
 
     - name: Gather the facts for the VM
       vsphere_guest:
