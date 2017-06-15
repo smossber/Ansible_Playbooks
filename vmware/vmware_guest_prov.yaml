@@ -36,18 +36,18 @@
       vmware_guest:
         hostname: "{{ vcenter_hostname }}"
         validate_certs: no
-        #cluster: "{{ cluster }}"
-        esxi_hostname: "{{ esxi_hostname }}"
+        cluster: "{{ cluster }}"
+        #esxi_hostname: "{{ esxi_hostname }}"
         datacenter: "{{ datacenter }}"
         name: "{{ vm_name }}"
         state: poweredon
         guest_id: rhel7_64Guest
-        networks:
-        - name: VM Network
-          ip: "{{ vm_ip }}"
-          vlan: "{{ vm_network }}"
-          netmask: "{{ netmask }}"
-          device_type: vmxnet3
+        #networks:
+        #- name: VM Network
+         # ip: "{{ vm_ip }}"
+         # vlan: "{{ vm_network }}"
+         # netmask: "{{ netmask }}"
+         # device_type: vmxnet3
         template: "{{ template }}"
         wait_for_ip_address: yes
       register: deploy
