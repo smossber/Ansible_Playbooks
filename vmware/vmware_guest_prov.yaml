@@ -37,6 +37,7 @@
         hostname: "{{ vcenter_hostname }}"
         validate_certs: no
         cluster: "{{ cluster }}"
+        esxi_hostname: "{{ esxi_hostname }}"
         datacenter: "{{ datacenter }}"
         name: "{{ vm_name }}"
         state: poweredon
