@@ -64,7 +64,7 @@
 
     - set_fact: new_vm_uuid="{{ new_vm.ansible_facts.hw_product_uuid }}"
 
-    - set_fact: new_vm_ip_address="{{ new_vm.ansible_facts.hw_eth0.ip_addresses.0 }}"
+    - set_fact: new_vm_ip_address="{{ new_vm.ansible_facts.hw_eth0.ipaddresses.0 }}"
 
     - debug: var=new_vm_uuid
 
