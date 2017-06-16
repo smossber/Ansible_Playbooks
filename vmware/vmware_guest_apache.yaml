@@ -161,3 +161,42 @@
         state: touch
         mode: "u=rw,g=r,o=r" 
 
+    - name: create admin account
+      user: 
+        name: admin
+        password: smartvm
+        group: wheel
+    - name: create vhost.conf
+      template:
+        src: templates/volvo_vhost.conf
+        dest: /etc/httpd/conf.d/volvo_vhost.conf
+
+    - name: create vhost folder
+      file:
+        state: directory
+        mode: 0755
+        owner: apache
+        group: apache
+        path: /var/www/volvo
+
+    - name: "put index.html in vhost folder"
+      template:
+        src: templates/index.html
+        dest: /var/www/volvo/index.html
+        owner: apache
+        group: apache
+        mode: '0644'
+
+    - name: start apache
+      service:
+        name: httpd
+        enabled: true
+        state: restarted
+        
+
+    - name: open port 80 
+      firewalld:
+        service: http
+        permanent: true
+        state: enabled
+
